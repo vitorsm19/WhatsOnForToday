@@ -31,21 +31,9 @@ body {
   5. Improve text rendering
 */
 body {
-  line-height: 1.5;
   -webkit-font-smoothing: antialiased;
 }
 
-/*
-  6. Improve media defaults
-*/
-img,
-picture,
-video,
-canvas,
-svg {
-  display: block;
-  max-width: 100%;
-}
 
 /*
   7. Remove built-in form typography styles
@@ -132,27 +120,10 @@ h6 {
   opacity: 1;
 }
 
-/* 
-
-.taskinfo button {
-  margin-right: 1rem;
-  padding: 0;
-  height: 25px;
-  width: 25px;
-  border-radius: 50%;
-  border-color: #6b7179;
-  border-style: solid;
-  cursor: pointer;
-  background-color: transparent;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-} */
-
 .taskinfo svg,
 .tasklist svg {
   color: #6b7179;
+  height: 75%;
 }
 
 .taskinfo {
@@ -277,14 +248,15 @@ h6 {
   .addTask input {
     width: 100%;
   }
-  .tasklist button, .taskinfo button {
+
+  .tasklist button,
+  .taskinfo button {
     width: 20px;
     height: 20px;
   }
-  
 
   .task-section {
-   box-sizing: unset;
+    box-sizing: unset;
   }
 
 }
