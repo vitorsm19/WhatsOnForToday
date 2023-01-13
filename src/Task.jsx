@@ -1,4 +1,3 @@
-import { useState, useEffect } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCheck, faClose, faRefresh } from "@fortawesome/free-solid-svg-icons";
 import "./App.css";

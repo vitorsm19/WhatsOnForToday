@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faPlus, faClose } from "@fortawesome/free-solid-svg-icons";
+import { faPlus } from "@fortawesome/free-solid-svg-icons";
 import Task from "./Task";
 import "./App.css";
 
@@ -9,17 +9,12 @@ function App() {
   const [newTask, setNewTask] = useState("");
   const [formError, setFormError] = useState({ error: "", hasError: false });
 
-  // useEffect(() => {
-  //   localStorage.setItem("tasks", JSON.stringify(todoList));
-  //   console.log("todoList saved");
-  // }, [todoList]);
-
-  // useEffect(() => {
-  //   const tasks = JSON.parse(localStorage.getItem("tasks"));
-  //   tasks
-  //     ? setTodoList(Object.values(tasks))
-  //     : console.log("todoList not found");
-  // }, []);
+  useEffect(() => {
+    const tasks = JSON.parse(localStorage.getItem("tasks"));
+    tasks
+      ? setTodoList(Object.values(tasks))
+      : console.log("todoList not found");
+  }, []);
 
   const handleTaskInputValue = (e) => {
     setNewTask(e.target.value);
@@ -27,6 +22,7 @@ function App() {
       error: "",
     });
   };
+  
 
   const handleAddTask = () => {
     if (!newTask.trim()) {
@@ -48,25 +44,41 @@ function App() {
     };
     setTodoList([...todoList, task]);
     setNewTask("");
+    localStorage.setItem("tasks", JSON.stringify([...todoList, task]));
   };
+
   const handleDeleteTask = (id) => {
-    setTodoList(todoList.filter((task) => task.id !== id));
+    const updatedTodoList = todoList.filter((task) => task.id !== id);
+    setTodoList(updatedTodoList);
+    localStorage.setItem("tasks", JSON.stringify(updatedTodoList));
   };
 
   const handleCompleteTask = (id) => {
     setTodoList(
-      todoList.map((task) =>
-        task.id === id ? { ...task, color: "green", completed: true } : task
-      )
+      todoList.map((task) => {
+        if (task.id === id) {
+          task.completed = true;
+          task.color = "green";
+        }
+        return task;
+      })
     );
+    localStorage.setItem("tasks", JSON.stringify(todoList));
   };
+
+  
 
   const handleUndoCompletedTask = (id) => {
     setTodoList(
-      todoList.map((task) =>
-        task.id === id ? { ...task, color: "", completed: false } : task
-      )
+      todoList.map((task) => {
+        if (task.id === id) {
+          task.completed = false;
+          task.color = "";
+        }
+        return task;
+      })
     );
+    localStorage.setItem("tasks", JSON.stringify(todoList));
   };
 
   const taskHandlers = {
