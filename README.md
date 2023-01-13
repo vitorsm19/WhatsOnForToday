@@ -1,6 +1,6 @@
 # WhatsOnForToday
 <br>
-<p>To-Do list app created with React to study and practice conecepts like,useState, useEffect, LocalStorage, props and Component LifeCycle :)</p>
+<p>To-Do list app created with React to study and practice concepts like useState, useEffect, LocalStorage, props and Component LifeCycle :)</p>
 <br>
 <br>
 
