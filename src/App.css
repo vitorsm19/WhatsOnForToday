@@ -64,9 +64,34 @@ h6 {
 #root,
 #__next {
   isolation: isolate;
+  
 }
 
 
+
+/* ===== Scrollbar CSS ===== */
+  /* Firefox */
+  * {
+    scrollbar-width: auto;
+    scrollbar-color: #343a40 #ffffff;
+  }
+
+  /* Chrome, Edge, and Safari */
+  *::-webkit-scrollbar {
+    width: 10px;
+  }
+
+  *::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  *::-webkit-scrollbar-thumb {
+    background-color: #343a40;
+    border-radius: 10px;
+    border: transparent;
+  }
+
+ 
 .App {
   display: flex;
   justify-content: flex-start;
@@ -77,6 +102,10 @@ h6 {
   background-color: #3c424a;
   border-radius: 10px;
   padding: 1rem 9rem;
+  overflow-y: auto;
+    min-height: 100%;
+
+  
 }
 
 .title {
@@ -123,7 +152,7 @@ h6 {
 .taskinfo svg,
 .tasklist svg {
   color: #6b7179;
-  height: 75%;
+  height: 65%;
 }
 
 .taskinfo {
@@ -143,7 +172,7 @@ h6 {
   flex-direction: column;
   height: 300px;
   width: 100%;
-
+  margin-bottom: 1rem;
 }
 
 .tasklist {
