@@ -22,7 +22,6 @@ function App() {
       error: "",
     });
   };
-  
 
   const handleAddTask = () => {
     if (!newTask.trim()) {
@@ -65,8 +64,6 @@ function App() {
     );
     localStorage.setItem("tasks", JSON.stringify(todoList));
   };
-
-  
 
   const handleUndoCompletedTask = (id) => {
     setTodoList(
