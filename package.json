@@ -21,5 +21,11 @@
     "@types/react-dom": "^18.0.9",
     "@vitejs/plugin-react": "^3.0.0",
     "vite": "^4.0.0"
-  }
+  },
+
+  "scripts": {
+    "dev": "vite --host"
+}
+
+
 }
